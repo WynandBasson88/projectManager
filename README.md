@@ -7,7 +7,7 @@ The project_manager project enables a business to use the project management sys
 * Update the contractor, architect or customer details
 * Finalise the project
 
-The goal of this project was to build a project management system using the Java programming language and can be used by any person or business that needs to keep track of the projects that belong to the business.
+The goal of this project was to build a project management system using the Java programming language. This project can be used by any person or business that needs to keep track of all the projects that belong to the business.
 This project is built using the object-oriented programming paradigm.
 
 ## Instructions for how to test the code
