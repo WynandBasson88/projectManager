@@ -1,70 +1,103 @@
+// Import the Scanner class
 import java.util.Scanner;
 
+// Class Person
 public class Person {
 
-	// Declare Attributes for the Class Person
-	String personName;
-	String personNumber;
-	String personEmail;
-	String personAddress;
+	// Attributes (private for encapsulation)
+	private String personName;
+	private String personNumber;
+	private String personEmail;
+	private String personAddress;
 	
-	// Define the Class Methods
-	// Define the Constructor needed to construct Objects from the Class Person
-	public Person(String Name, String Number, String Email, String Address)
+	// Constructor
+	public Person(String name, String number, String email, String address)
+	{
+		this.setPersonName(name);
+		this.setPersonNumber(number);
+		this.setPersonEmail(email);
+		this.setPersonAddress(address);
+	}
+	
+	// Setters
+	public void setPersonName(String Name)
 	{
 		this.personName = Name;
+	}
+	
+	public void setPersonNumber(String Number)
+	{
 		this.personNumber = Number;
+	}
+	
+	public void setPersonEmail(String Email)
+	{
 		this.personEmail = Email;
+	}
+	
+	public void setPersonAddress(String Address)
+	{
 		this.personAddress = Address;
 	}
 	
-	// Define a function personDetails() that displays all the attribute values when called from the Class ProjectManager
-	public void displayPersonDetails()
+	// Getters
+	public String getPersonName()
 	{
-		System.out.println("Name: " + personName);
-		System.out.println("Number: " + personNumber);
-		System.out.println("Email: " + personEmail);
-		System.out.println("Address: " + personAddress);
-		System.out.println(" ");
-		
+		return personName;
 	}
 	
-	// Define a function updatePersonNumber() that updates the persons number and displays all the attribute values when called from Class ProjectManager
+	public String getPersonNumber()
+	{
+		return personNumber;
+	}
+	
+	public String getPersonEmail()
+	{
+		return personEmail;
+	}
+	
+	public String getPersonAddress()
+	{
+		return personAddress;
+	}
+	
+	// Method displayPersonDetails() displays all the attribute values when called
+	public void displayPersonDetails()
+	{
+		System.out.println("Name: " + getPersonName());
+		System.out.println("Number: " + getPersonNumber());
+		System.out.println("Email: " + getPersonEmail());
+		System.out.println("Address: " + getPersonAddress());
+		System.out.println(" ");	
+	}
+	
+	// Method updatePersonNumber() updates the persons number
 	public void updatePersonNumber()
 	{
 		Scanner s = new Scanner(System.in);
-		
 		System.out.println("Please enter the person's number: ");
-		personNumber = s.nextLine();
+		setPersonNumber(s.nextLine());
 		System.out.println(" ");
-		
 		displayPersonDetails();
-		
 	}
 	
-	// Define a function updatePersonEmail() that updates the persons email and displays all the attribute values when called from Class ProjectManager
+	// Method updatePersonEmail() updates the persons email
 	public void updatePersonEmail()
 	{
 		Scanner s = new Scanner(System.in);
-		
 		System.out.println("Please enter the person's email address: ");
-		personEmail = s.nextLine();
+		setPersonEmail(s.nextLine());
 		System.out.println(" ");
-		
 		displayPersonDetails();
-		
 	}
 	
-	// Define a function updatePersonAddress() that updates the persons address and displays all the attribute values when called from Class ProjectManager
+	// Method updatePersonAddress() updates the persons address
 	public void updatePersonAddress()
 	{
 		Scanner s = new Scanner(System.in);
-		
 		System.out.println("Please enter the person's address: ");
-		personAddress = s.nextLine();
+		setPersonAddress(s.nextLine());
 		System.out.println(" ");
-		
 		displayPersonDetails();
-		
 	}
 }
