@@ -1,0 +1,23 @@
+Project Name: House Nikki 
+Project Number: 07 
+Building Type: House 
+Physical Address: New York 
+ERF Number: 0007 
+Project Deadline: 2022-02-02 
+Project Value: 40000.0 
+Paid To Date: 20000.0 
+Finalised: Not Finalised 
+Completion Date:  
+Contractor Name: Sam 
+Contractor Number: 987 
+Contractor Email: sam@gmail.com 
+Contractor Address: Kempton 
+Customer Name: Nikki 
+Customer Number: 654 
+Customer Email: nikki@gmail.com 
+Customer Address: Cape Town 
+Architect Name: Tian 
+Architect Number: 765 
+Architect Email: tian@hotmail.com 
+Architect Address: Hamilton 
+ 

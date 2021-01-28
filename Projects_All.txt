@@ -1,0 +1,161 @@
+Project Name: Mansion Silvia 
+Project Number: 01 
+Building Type: Mansion 
+Physical Address: Potchefstroom 
+ERF Number: 0001 
+Project Deadline: 2021-02-01 
+Project Value: 10000.0 
+Paid To Date: 2000.0 
+Finalised: Finalised 
+Completion Date: 2021-01-25 
+Contractor Name: Wynand 
+Contractor Number: 061 
+Contractor Email: bassonwynand@gmail.com 
+Contractor Address: Zwolle 
+Customer Name: Silvia 
+Customer Number: 031 
+Customer Email: ferrersilvia@gmail.com 
+Customer Address: Barcelona 
+Architect Name: Marco 
+Architect Number: 076 
+Architect Email: bassonmarco@gmail.com 
+Architect Address: Alberton 
+ 
+Project Name: Castle Bella 
+Project Number: 02 
+Building Type: Castle 
+Physical Address: Fochville 
+ERF Number: 0002 
+Project Deadline: 2021-01-20 
+Project Value: 15000.0 
+Paid To Date: 1000.0 
+Finalised: Not Finalised 
+Completion Date:  
+Contractor Name: Jolene 
+Contractor Number: 777 
+Contractor Email: jolene@gmail.com 
+Contractor Address: Potchefstroom 
+Customer Name: Bella 
+Customer Number: 999 
+Customer Email: bella@gmail.com 
+Customer Address: Potchefstroom 
+Architect Name: Dirk 
+Architect Number: 888 
+Architect Email: dirk@gmail.com 
+Architect Address: Potchefstroom 
+ 
+Project Name: Lodge Lydia 
+Project Number: 03 
+Building Type: Lodge 
+Physical Address: Ceturion 
+ERF Number: 0003 
+Project Deadline: 2021-02-20 
+Project Value: 30000.0 
+Paid To Date: 15000.0 
+Finalised: Not Finalised 
+Completion Date:  
+Contractor Name: Therese 
+Contractor Number: 083 
+Contractor Email: therese@gmail.com 
+Contractor Address: Fochville 
+Customer Name: Lydia 
+Customer Number: 076 
+Customer Email: lydia@gmail.com 
+Customer Address: Carletonville 
+Architect Name: Rene 
+Architect Number: 011 
+Architect Email: rene@gmail.com 
+Architect Address: Pretoria 
+ 
+Project Name: House Dylan 
+Project Number: 04 
+Building Type: House 
+Physical Address: Potchefstroom 
+ERF Number: 0004 
+Project Deadline: 2021-01-10 
+Project Value: 12000.0 
+Paid To Date: 6000.0 
+Finalised: Finalised 
+Completion Date: 2021-01-25 
+Contractor Name: Wesley 
+Contractor Number: 022 
+Contractor Email: wesley@gmail.com 
+Contractor Address: Pretoria 
+Customer Name: Dylan 
+Customer Number: 087 
+Customer Email: dylan@gmail.com 
+Customer Address: Randfontein 
+Architect Name: Madeleen 
+Architect Number: 054 
+Architect Email: madeleen@gmail.com 
+Architect Address: Witbank 
+ 
+Project Name: Mansion Vlooi 
+Project Number: 05 
+Building Type: Mansion 
+Physical Address: Amsterdam 
+ERF Number: 0005 
+Project Deadline: 2021-01-01 
+Project Value: 19000.0 
+Paid To Date: 18000.0 
+Finalised: Finalised 
+Completion Date: 2021-01-26 
+Contractor Name: Johi 
+Contractor Number: 083296 
+Contractor Email: johibasson@gmail.com 
+Contractor Address: Witbank 
+Customer Name: Vlooi 
+Customer Number: 076239 
+Customer Email: vlooibasson@gmail.com 
+Customer Address: Rustenburg 
+Architect Name: Andy 
+Architect Number: 097654 
+Architect Email: andybasson@gmail.com 
+Architect Address: Klerksdorp 
+ 
+Project Name: Flat Sergio 
+Project Number: 06 
+Building Type: Flat 
+Physical Address: Singapur 
+ERF Number: 0006 
+Project Deadline: 2030-12-31 
+Project Value: 35000.0 
+Paid To Date: 20000.0 
+Finalised: Not Finalised 
+Completion Date:  
+Contractor Name: Jeanie 
+Contractor Number: 987 
+Contractor Email: jeanie@hotmail.com 
+Contractor Address: Fochville 
+Customer Name: Sergio 
+Customer Number: 890 
+Customer Email: sergio@hotmail.com 
+Customer Address: Centurion 
+Architect Name: Nico 
+Architect Number: 087 
+Architect Email: nico@yahoo.com 
+Architect Address: Durban 
+ 
+Project Name: House Nikki 
+Project Number: 07 
+Building Type: House 
+Physical Address: New York 
+ERF Number: 0007 
+Project Deadline: 2022-02-02 
+Project Value: 40000.0 
+Paid To Date: 20000.0 
+Finalised: Not Finalised 
+Completion Date:  
+Contractor Name: Sam 
+Contractor Number: 987 
+Contractor Email: sam@gmail.com 
+Contractor Address: Kempton 
+Customer Name: Nikki 
+Customer Number: 654 
+Customer Email: nikki@gmail.com 
+Customer Address: Cape Town 
+Architect Name: Tian 
+Architect Number: 765 
+Architect Email: tian@hotmail.com 
+Architect Address: Hamilton 
+ 
