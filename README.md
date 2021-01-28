@@ -18,7 +18,7 @@ This project is built using the object-oriented programming paradigm.
 * Ensure you have the JDK (Java Development Kit) installed on your computer
 * Create a new project using your IDE (Integrated Development Environment) of choice such as Eclipse etc.
 * Drag and drop the downloaded java files to the src (source) folder
-* Drag and drop the doenloaded text files to your project folder
+* Drag and drop the downloaded text files to your project folder
 * Run the code
 
 ## Contact Information
