@@ -1,6 +1,9 @@
 // Imports
-import java.io.File;
-import java.io.FileWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Formatter;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -182,8 +185,11 @@ public class ProjectManager {
 		System.out.println("11. Update architect number");
 		System.out.println("12. Update architect email");
 		System.out.println("13. Update architect address");
-		System.out.println("14. Finalise project");
-		System.out.println("15. To select a different project");
+		System.out.println("14. Update engineer number");
+		System.out.println("15. Update engineer email");
+		System.out.println("16. Update engineer address");
+		System.out.println("17. Finalise project");
+		System.out.println("18. To select a different project");
 		System.out.println("Select an option from the menu above: ");
 		String Selection = menu.nextLine();
 		System.out.println(" ");
@@ -219,7 +225,7 @@ public class ProjectManager {
 		String deadline = inputString.nextLine();
 		LocalDate projDeadline = deadlineException(deadline); // Defensive Programming
 		
-		System.out.println("Please enter the contractor's name: ");
+		System.out.println("Please enter the contractor's full name: ");
 		String contractorName = inputString.nextLine();
 		
 		System.out.println("Please enter the contractor's number: ");
@@ -231,7 +237,7 @@ public class ProjectManager {
 		System.out.println("Please enter the contractor's address: ");
 		String contractorAddress = inputString.nextLine();
 		
-		System.out.println("Please enter the customer's name: ");
+		System.out.println("Please enter the customer's full name: ");
 		String customerName = inputString.nextLine();
 		
 		System.out.println("Please enter the customer's number: ");
@@ -243,7 +249,7 @@ public class ProjectManager {
 		System.out.println("Please enter the customer's address: ");
 		String customerAddress = inputString.nextLine();
 		
-		System.out.println("Please enter the architect's name: ");
+		System.out.println("Please enter the architect's full name: ");
 		String architectName = inputString.nextLine();
 		
 		System.out.println("Please enter the architect's number: ");
@@ -254,6 +260,18 @@ public class ProjectManager {
 		
 		System.out.println("Please enter the architect's address: ");
 		String architectAddress = inputString.nextLine();
+		
+		System.out.println("Please enter the engineer's full name: ");
+		String engineerName = inputString.nextLine();
+		
+		System.out.println("Please enter the engineer's number: ");
+		String engineerNumber = inputString.nextLine();
+		
+		System.out.println("Please enter the engineer's email: ");
+		String engineerEmail = inputString.nextLine();
+		
+		System.out.println("Please enter the engineer's address: ");
+		String engineerAddress = inputString.nextLine();
 		
 		System.out.println("Please enter the project cost: ");
 		while(!inputDouble.hasNextDouble()) // Defensive Programming
@@ -275,7 +293,7 @@ public class ProjectManager {
 		String completionDate = "";
 		
 		// Construct an object called Project of type Project
-		Project Project = new Project(projName, projNumber, buildType, physAddress, erfNum, projDeadline, projCost, paidToDate, finalised, completionDate, contractorName, contractorNumber, contractorEmail, contractorAddress, customerName, customerNumber, customerEmail, customerAddress, architectName, architectNumber, architectEmail, architectAddress);
+		Project Project = new Project(projName, projNumber, buildType, physAddress, erfNum, projDeadline, projCost, paidToDate, finalised, completionDate, contractorName, contractorNumber, contractorEmail, contractorAddress, customerName, customerNumber, customerEmail, customerAddress, architectName, architectNumber, architectEmail, architectAddress, engineerName, engineerNumber, engineerEmail, engineerAddress);
 		
 		AddProjectData(Project);
 	}
@@ -303,96 +321,156 @@ public class ProjectManager {
 		}
 	}
 	
-	// Method for capturing project details in file Data.txt
+	// Method that adds project details to the database
 	/**
 	 * 
-	 * @param project Used for capturing project details in text file Data.txt
+	 * @param project Used for capturing project details in PoisPMS_database
 	 */
 	private static void AddProjectData(Project project)
 	{
-		// Defensive programming: If we fail to create and write to the text file an exception will be thrown and the catch block will execute 
+		// Defensive programming: If we fail to connect to the database and insert values to it an exception will be thrown and the catch block will execute 
 		try
 		{
-			FileWriter f = new FileWriter("Data.txt", true);
-			Formatter file = new Formatter(f);
-			file.format("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s", 
-					project.getProjectName(), ";", project.getProjectNumber(), ";", project.getBuildingType(), ";", project.getPhysicalAddress(), ";", project.getERFNumber(), ";",
-					project.getProjectDeadline(), ";", project.getProjectValue(), ";", project.getPaidToDate(), ";", project.getFinalised(), ";", project.getCompletionDate(), ";",
-					project.getContractor().getPersonName(), ";", project.getContractor().getPersonNumber(), ";", project.getContractor().getPersonEmail(), ";", project.getContractor().getPersonAddress(), ";",
-					project.getCustomer().getPersonName(), ";", project.getCustomer().getPersonNumber(), ";", project.getCustomer().getPersonEmail(), ";", project.getCustomer().getPersonAddress(), ";",
-					project.getArchitect().getPersonName(), ";", project.getArchitect().getPersonNumber(), ";", project.getArchitect().getPersonEmail(), ";", project.getArchitect().getPersonAddress(), "\r\n");
-			file.close();
-			System.out.println("");	
-			System.out.println("Project details captured successfully in the Data.txt file");
-			System.out.println("");	
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/poisepms_database?useSSL=false", "Wynand", "WynandBasson88");
+			Statement statement = connection.createStatement();
+				
+			int rowsAffected = statement.executeUpdate("INSERT INTO contractor VALUES ('" + project.getContractor().getPersonName() + "','" 
+			+ project.getContractor().getPersonNumber() + "','" + project.getContractor().getPersonEmail() + "','" + project.getContractor().getPersonAddress() + "');");
+			
+			statement.executeUpdate("INSERT INTO customer VALUES ('" + project.getCustomer().getPersonName() + "','" + project.getCustomer().getPersonNumber() + "','" 
+			+ project.getCustomer().getPersonEmail() + "','" + project.getCustomer().getPersonAddress() + "');");
+			
+			statement.executeUpdate("INSERT INTO architect VALUES ('" + project.getArchitect().getPersonName() + "','" + project.getArchitect().getPersonNumber() 
+			+ "','" + project.getArchitect().getPersonEmail() + "','" + project.getArchitect().getPersonAddress() + "');");
+			
+			statement.executeUpdate("INSERT INTO engineer VALUES ('" + project.getEngineer().getPersonName() + "','" + project.getEngineer().getPersonNumber() + "','" 
+			+ project.getEngineer().getPersonEmail() + "','" + project.getEngineer().getPersonAddress() + "');");
+			
+			statement.executeUpdate("INSERT INTO project VALUES ('" + project.getProjectNumber() + "','" + project.getProjectName() + "','" + project.getBuildingType() 
+			+ "','" + project.getPhysicalAddress() + "','" + project.getERFNumber() + "','" + project.getProjectDeadline() + "'," + project.getProjectValue() + "," 
+			+ project.getPaidToDate() + ",'" + project.getFinalised() + "','" + project.getCompletionDate() + "','" + project.getContractor().getPersonName() 
+			+ "','" + project.getCustomer().getPersonName() + "','" + project.getArchitect().getPersonName() + "','" + project.getEngineer().getPersonName() + "');");
+			
+			statement.close();
+			connection.close();
+				
+			System.out.println("");
+			System.out.println("Query complete, " + rowsAffected + " rows added");
+			System.out.println("");
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
-			System.out.println("An error occured when trying to add project details to the file Data.txt");				
-		}		
+			System.out.println("An error occured executing method AddProjectData()");
+			System.out.println("");
+		}
 	}
 	
-	// Method for updating project details in file Data.txt
+	// Method that updates project details in the database
 	/**
 	 * 
-	 * @param ProjectObjects Used to update project details in text file Data.txt
+	 * @param ProjectObjects Used to update project details in PoisePMS_database
 	 */
-	private static void updateProjectData(ArrayList <Project> ProjectObjects)
+	private static void updateProjectData(ArrayList<Project> ProjectObjects)
 	{
-		// Defensive programming: If we fail to create and write to the text file an exception will be thrown and the catch block will execute 
+		// Defensive programming: If we fail to connect to the database and update its values an exception will be thrown and the catch block will execute 
 		try
 		{
-			Formatter file = new Formatter("Data.txt");
-			for(int i = 0; i < ProjectObjects.size(); i++)
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/poisepms_database?useSSL=false", "Wynand", "WynandBasson88");
+			Statement statement = connection.createStatement();
+			int rowsAffected = 0;
+				
+			for (int i = 0; i < ProjectObjects.size(); i++)
 			{
-				file.format("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s", 
-					ProjectObjects.get(i).getProjectName(), ";", ProjectObjects.get(i).getProjectNumber(), ";", ProjectObjects.get(i).getBuildingType(), ";", ProjectObjects.get(i).getPhysicalAddress(), ";", ProjectObjects.get(i).getERFNumber(), ";",
-					ProjectObjects.get(i).getProjectDeadline(), ";", ProjectObjects.get(i).getProjectValue(), ";", ProjectObjects.get(i).getPaidToDate(), ";", ProjectObjects.get(i).getFinalised(), ";", ProjectObjects.get(i).getCompletionDate(), ";",
-					ProjectObjects.get(i).getContractor().getPersonName(), ";", ProjectObjects.get(i).getContractor().getPersonNumber(), ";", ProjectObjects.get(i).getContractor().getPersonEmail(), ";", ProjectObjects.get(i).getContractor().getPersonAddress(), ";",
-					ProjectObjects.get(i).getCustomer().getPersonName(), ";", ProjectObjects.get(i).getCustomer().getPersonNumber(), ";", ProjectObjects.get(i).getCustomer().getPersonEmail(), ";", ProjectObjects.get(i).getCustomer().getPersonAddress(), ";",
-					ProjectObjects.get(i).getArchitect().getPersonName(), ";", ProjectObjects.get(i).getArchitect().getPersonNumber(), ";", ProjectObjects.get(i).getArchitect().getPersonEmail(), ";", ProjectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
-			}
-			file.close();
+				statement.executeUpdate("UPDATE contractor SET ContractorNumber = '" + ProjectObjects.get(i).getContractor().getPersonNumber() + "' WHERE ContractorName = '" + ProjectObjects.get(i).getContractor().getPersonName() + "';");
+				statement.executeUpdate("UPDATE contractor SET ContractorEmail = '" + ProjectObjects.get(i).getContractor().getPersonEmail() + "' WHERE ContractorName = '" + ProjectObjects.get(i).getContractor().getPersonName() + "';");
+				statement.executeUpdate("UPDATE contractor SET ContractorAddress = '" + ProjectObjects.get(i).getContractor().getPersonAddress() + "' WHERE ContractorName = '" + ProjectObjects.get(i).getContractor().getPersonName() + "';");
+				
+				statement.executeUpdate("UPDATE customer SET CustomerNumber = '" + ProjectObjects.get(i).getCustomer().getPersonNumber() + "' WHERE CustomerName = '" + ProjectObjects.get(i).getCustomer().getPersonName() + "';");
+				statement.executeUpdate("UPDATE customer SET CustomerEmail = '" + ProjectObjects.get(i).getCustomer().getPersonEmail() + "' WHERE CustomerName = '" + ProjectObjects.get(i).getCustomer().getPersonName() + "';");
+				statement.executeUpdate("UPDATE customer SET CustomerAddress = '" + ProjectObjects.get(i).getCustomer().getPersonAddress() + "' WHERE CustomerName = '" + ProjectObjects.get(i).getCustomer().getPersonName() + "';");
+				
+				statement.executeUpdate("UPDATE architect SET ArchitectNumber = '" + ProjectObjects.get(i).getArchitect().getPersonNumber() + "' WHERE ArchitectName = '" + ProjectObjects.get(i).getArchitect().getPersonName() + "';");
+				statement.executeUpdate("UPDATE architect SET ArchitectEmail = '" + ProjectObjects.get(i).getArchitect().getPersonEmail() + "' WHERE ArchitectName = '" + ProjectObjects.get(i).getArchitect().getPersonName() + "';");
+				statement.executeUpdate("UPDATE architect SET ArchitectAddress = '" + ProjectObjects.get(i).getArchitect().getPersonAddress() + "' WHERE ArchitectName = '" + ProjectObjects.get(i).getArchitect().getPersonName() + "';");
+				
+				statement.executeUpdate("UPDATE engineer SET EngineerNumber = '" + ProjectObjects.get(i).getEngineer().getPersonNumber() + "' WHERE EngineerName = '" + ProjectObjects.get(i).getEngineer().getPersonName() + "';");
+				statement.executeUpdate("UPDATE engineer SET EngineerEmail = '" + ProjectObjects.get(i).getEngineer().getPersonEmail() + "' WHERE EngineerName = '" + ProjectObjects.get(i).getEngineer().getPersonName() + "';");
+				statement.executeUpdate("UPDATE engineer SET EngineerAddress = '" + ProjectObjects.get(i).getEngineer().getPersonAddress() + "' WHERE EngineerName = '" + ProjectObjects.get(i).getEngineer().getPersonName() + "';");
+				
+				statement.executeUpdate("UPDATE project SET ProjectName = '" + ProjectObjects.get(i).getProjectName() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET BuildingType = '" + ProjectObjects.get(i).getBuildingType() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET PhysicalAddress = '" + ProjectObjects.get(i).getPhysicalAddress() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET ERFNumber = '" + ProjectObjects.get(i).getERFNumber() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET ProjectDeadline = '" + ProjectObjects.get(i).getProjectDeadline() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET ProjectCost = " + ProjectObjects.get(i).getProjectValue() + " WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET PaidToDate = " + ProjectObjects.get(i).getPaidToDate() + " WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET Finalised = '" + ProjectObjects.get(i).getFinalised() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET CompletionDate = '" + ProjectObjects.get(i).getCompletionDate() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET ContractorName = '" + ProjectObjects.get(i).getContractor().getPersonName() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET CustomerName = '" + ProjectObjects.get(i).getCustomer().getPersonName() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET ArchitectName = '" + ProjectObjects.get(i).getArchitect().getPersonName() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				statement.executeUpdate("UPDATE project SET EngineerName = '" + ProjectObjects.get(i).getEngineer().getPersonName() + "' WHERE ProjectNumber = '" + ProjectObjects.get(i).getProjectNumber() + "';");
+				
+				rowsAffected++;
+			}	
+			statement.close();
+			connection.close();
+				
+			System.out.println("Query complete, " + rowsAffected + " rows updated.");
+			System.out.println("");
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
-			System.out.println("An error occured when trying to add the updated project details to the Data.txt file");				
-		}		
+			System.out.println("An error occured executing method updateBookData()");
+			System.out.println("");
+		}
 	}
 	
-	// Method projectObjectList() reads from file Data.txt and puts the info in a data structure (ArrayList of project objects) 
+	// Method that creates a data structure (list of project objects) from the database
 	/**
 	 * 
 	 * @return Returns an array list of project objects to have all projects information readily available
 	 */
 	private static ArrayList<Project> projectObjectList()
 	{
-		// Defensive programming: If we fail to read from the text file an exception will be thrown and the catch block will execute 
+		// Defensive programming: If we fail to connect to the database and construct a list of project objects an exception will be thrown and the catch block will execute 
 		try
 		{
-			File file = new File("Data.txt");
-			Scanner s = new Scanner(file);
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/poisepms_database?useSSL=false", "Wynand", "WynandBasson88");
+			Statement statement = connection.createStatement();
 			ArrayList<Project> projectObjectList = new ArrayList<>();
-			
-			while(s.hasNextLine())
+				
+			ResultSet results = statement.executeQuery("SELECT * FROM project "
+					+ "INNER JOIN contractor ON project.ContractorName = contractor.ContractorName "
+					+ "INNER JOIN customer ON project.CustomerName = customer.CustomerName "
+					+ "INNER JOIN architect ON project.ArchitectName = architect.ArchitectName "
+					+ "INNER JOIN engineer ON project.EngineerName = engineer.EngineerName;");
+				
+			while(results.next())
 			{
-				String[] tempStringArray = {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
-				String line = s.nextLine();
-				tempStringArray = line.trim().split(" ; ");
-				Project tempProject = new Project(tempStringArray[0], tempStringArray[1], tempStringArray[2], tempStringArray[3], tempStringArray[4], LocalDate.parse(tempStringArray[5], DateTimeFormatter.ISO_DATE),
-						Double.parseDouble(tempStringArray[6]), Double.parseDouble(tempStringArray[7]), tempStringArray[8], tempStringArray[9], tempStringArray[10], 
-						tempStringArray[11], tempStringArray[12], tempStringArray[13], tempStringArray[14], tempStringArray[15], tempStringArray[16], tempStringArray[17],
-						tempStringArray[18], tempStringArray[19], tempStringArray[20], tempStringArray[21]);
-				projectObjectList.add(tempProject);	
-			}
+				Project tempProject = new Project(results.getString("ProjectName"), results.getString("ProjectNumber"), results.getString("BuildingType"), 
+				results.getString("PhysicalAddress"), results.getString("ERFNumber"), results.getDate("ProjectDeadline").toLocalDate(), results.getFloat("ProjectCost"), 
+				results.getFloat("PaidToDate"), results.getString("Finalised"), results.getString("CompletionDate"), results.getString("ContractorName"), 
+				results.getString("ContractorNumber"), results.getString("ContractorEmail"), results.getString("ContractorAddress"), results.getString("CustomerName"), 
+				results.getString("CustomerNumber"), results.getString("CustomerEmail"), results.getString("CustomerAddress"), results.getString("ArchitectName"), 
+				results.getString("ArchitectNumber"), results.getString("ArchitectEmail"), results.getString("ArchitectAddress"), results.getString("EngineerName"), 
+				results.getString("EngineerNumber"), results.getString("EngineerEmail"), results.getString("EngineerAddress"));
+				
+				projectObjectList.add(tempProject);
+			}	
+			results.close();
+			statement.close();
+			connection.close();
+				
 			return projectObjectList;
 		}
-		catch(Exception e)
+		catch(SQLException e)
 		{
-			System.out.println("The file Data.txt was not found at the destination");
+			e.printStackTrace();
+			System.out.println("An error occured executing method projectObjectList()");
 			System.out.println("");
 			return null;
-		}	
+		}
 	}
 	
 	// Method to display all the projects in the console
@@ -539,7 +617,11 @@ public class ProjectManager {
 				file.format("%s %s %s", "Architect Name:", projectObjects.get(i).getArchitect().getPersonName(), "\r\n");
 				file.format("%s %s %s", "Architect Number:", projectObjects.get(i).getArchitect().getPersonNumber(), "\r\n");
 				file.format("%s %s %s", "Architect Email:", projectObjects.get(i).getArchitect().getPersonEmail(), "\r\n");
-				file.format("%s %s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n", "\r\n");
+				file.format("%s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
+				file.format("%s %s %s", "Engineer Name:", projectObjects.get(i).getEngineer().getPersonName(), "\r\n");
+				file.format("%s %s %s", "Engineer Number:", projectObjects.get(i).getEngineer().getPersonNumber(), "\r\n");
+				file.format("%s %s %s", "Engineer Email:", projectObjects.get(i).getEngineer().getPersonEmail(), "\r\n");
+				file.format("%s %s %s %s", "Engineer Address:", projectObjects.get(i).getEngineer().getPersonAddress(), "\r\n", "\r\n");
 			}
 			file.close();
 			System.out.println("File Projects_All.txt created successfully");
@@ -586,7 +668,11 @@ public class ProjectManager {
 			file.format("%s %s %s", "Architect Name:", projectObjects.get(i).getArchitect().getPersonName(), "\r\n");
 			file.format("%s %s %s", "Architect Number:", projectObjects.get(i).getArchitect().getPersonNumber(), "\r\n");
 			file.format("%s %s %s", "Architect Email:", projectObjects.get(i).getArchitect().getPersonEmail(), "\r\n");
-			file.format("%s %s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n", "\r\n");
+			file.format("%s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
+			file.format("%s %s %s", "Engineer Name:", projectObjects.get(i).getEngineer().getPersonName(), "\r\n");
+			file.format("%s %s %s", "Engineer Number:", projectObjects.get(i).getEngineer().getPersonNumber(), "\r\n");
+			file.format("%s %s %s", "Engineer Email:", projectObjects.get(i).getEngineer().getPersonEmail(), "\r\n");
+			file.format("%s %s %s %s", "Engineer Address:", projectObjects.get(i).getEngineer().getPersonAddress(), "\r\n", "\r\n");
 			file.close();
 			System.out.println("File Projects_Single.txt created successfully");
 			System.out.println("");
@@ -635,7 +721,11 @@ public class ProjectManager {
 					file.format("%s %s %s", "Architect Name:", projectObjects.get(i).getArchitect().getPersonName(), "\r\n");
 					file.format("%s %s %s", "Architect Number:", projectObjects.get(i).getArchitect().getPersonNumber(), "\r\n");
 					file.format("%s %s %s", "Architect Email:", projectObjects.get(i).getArchitect().getPersonEmail(), "\r\n");
-					file.format("%s %s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n", "\r\n");
+					file.format("%s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
+					file.format("%s %s %s", "Engineer Name:", projectObjects.get(i).getEngineer().getPersonName(), "\r\n");
+					file.format("%s %s %s", "Engineer Number:", projectObjects.get(i).getEngineer().getPersonNumber(), "\r\n");
+					file.format("%s %s %s", "Engineer Email:", projectObjects.get(i).getEngineer().getPersonEmail(), "\r\n");
+					file.format("%s %s %s %s", "Engineer Address:", projectObjects.get(i).getEngineer().getPersonAddress(), "\r\n", "\r\n");
 				}
 			}
 			file.close();
@@ -686,7 +776,11 @@ public class ProjectManager {
 					file.format("%s %s %s", "Architect Name:", projectObjects.get(i).getArchitect().getPersonName(), "\r\n");
 					file.format("%s %s %s", "Architect Number:", projectObjects.get(i).getArchitect().getPersonNumber(), "\r\n");
 					file.format("%s %s %s", "Architect Email:", projectObjects.get(i).getArchitect().getPersonEmail(), "\r\n");
-					file.format("%s %s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n", "\r\n");
+					file.format("%s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
+					file.format("%s %s %s", "Engineer Name:", projectObjects.get(i).getEngineer().getPersonName(), "\r\n");
+					file.format("%s %s %s", "Engineer Number:", projectObjects.get(i).getEngineer().getPersonNumber(), "\r\n");
+					file.format("%s %s %s", "Engineer Email:", projectObjects.get(i).getEngineer().getPersonEmail(), "\r\n");
+					file.format("%s %s %s %s", "Engineer Address:", projectObjects.get(i).getEngineer().getPersonAddress(), "\r\n", "\r\n");
 				}
 			}
 			file.close();
@@ -737,7 +831,11 @@ public class ProjectManager {
 					file.format("%s %s %s", "Architect Name:", projectObjects.get(i).getArchitect().getPersonName(), "\r\n");
 					file.format("%s %s %s", "Architect Number:", projectObjects.get(i).getArchitect().getPersonNumber(), "\r\n");
 					file.format("%s %s %s", "Architect Email:", projectObjects.get(i).getArchitect().getPersonEmail(), "\r\n");
-					file.format("%s %s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n", "\r\n");
+					file.format("%s %s %s", "Architect Address:", projectObjects.get(i).getArchitect().getPersonAddress(), "\r\n");
+					file.format("%s %s %s", "Engineer Name:", projectObjects.get(i).getEngineer().getPersonName(), "\r\n");
+					file.format("%s %s %s", "Engineer Number:", projectObjects.get(i).getEngineer().getPersonNumber(), "\r\n");
+					file.format("%s %s %s", "Engineer Email:", projectObjects.get(i).getEngineer().getPersonEmail(), "\r\n");
+					file.format("%s %s %s %s", "Engineer Address:", projectObjects.get(i).getEngineer().getPersonAddress(), "\r\n", "\r\n");
 				}
 			}
 			file.close();
@@ -789,7 +887,7 @@ public class ProjectManager {
 						String selection = updateMenuSelection();
 						
 						// Defensive Programming
-						while(!selection.equals("1") && !selection.equals("2") && !selection.equals("3") && !selection.equals("4") && !selection.equals("5") && !selection.equals("6") && !selection.equals("7") && !selection.equals("8") && !selection.equals("9") && !selection.equals("10") && !selection.equals("11") && !selection.equals("12") && !selection.equals("13") && !selection.equals("14") && !selection.equals("15"))
+						while(!selection.equals("1") && !selection.equals("2") && !selection.equals("3") && !selection.equals("4") && !selection.equals("5") && !selection.equals("6") && !selection.equals("7") && !selection.equals("8") && !selection.equals("9") && !selection.equals("10") && !selection.equals("11") && !selection.equals("12") && !selection.equals("13") && !selection.equals("14") && !selection.equals("15") && !selection.equals("16") && !selection.equals("17") && !selection.equals("18"))
 						{
 							selection = invalidMenuSelection();
 						}
@@ -870,13 +968,31 @@ public class ProjectManager {
 							updateProjectData(projectObjects);
 						}
 						
-						if(selection.equals("14")) // Finalise the project
+						if(selection.equals("14")) // Update the engineer number
+						{
+							projectObjects.get(i).getEngineer().updatePersonNumber();
+							updateProjectData(projectObjects);
+						}
+						
+						if(selection.equals("15")) // Update the engineer email
+						{
+							projectObjects.get(i).getEngineer().updatePersonEmail();
+							updateProjectData(projectObjects);
+						}
+						
+						if(selection.equals("16")) // Update the engineer address
+						{
+							projectObjects.get(i).getEngineer().updatePersonAddress();
+							updateProjectData(projectObjects);
+						}
+						
+						if(selection.equals("17")) // Finalise the project
 						{
 							projectObjects.get(i).finaliseProject();
 							updateProjectData(projectObjects);
 						}
 						
-						if(selection.equals("15")) // Return to select a new project
+						if(selection.equals("18")) // Return to select a new project
 						{
 							System.out.println("You can enter a different project number.\n");
 							break;

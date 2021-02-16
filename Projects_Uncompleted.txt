@@ -1,92 +1,81 @@
-Project Name: Castle Bella 
-Project Number: 02 
-Building Type: Castle 
-Physical Address: Fochville 
-ERF Number: 0002 
-Project Deadline: 2021-01-20 
+Project Name: Apartment Jolene 
+Project Number: 2 
+Building Type: Apartment 
+Physical Address: Potchefstroom 
+ERF Number: 02 
+Project Deadline: 2021-01-01 
 Project Value: 15000.0 
-Paid To Date: 1000.0 
+Paid To Date: 7500.0 
 Finalised: Not Finalised 
 Completion Date:  
-Contractor Name: Jolene 
-Contractor Number: 777 
-Contractor Email: jolene@gmail.com 
+Contractor Name: Dirk 
+Contractor Number: 0912346565 
+Contractor Email: bostondirk@gmail.com 
 Contractor Address: Potchefstroom 
-Customer Name: Bella 
-Customer Number: 999 
-Customer Email: bella@gmail.com 
+Customer Name: Jolene 
+Customer Number: 0763448877 
+Customer Email: bostonlina@gmail.com 
 Customer Address: Potchefstroom 
-Architect Name: Dirk 
-Architect Number: 888 
-Architect Email: dirk@gmail.com 
+Architect Name: Bella 
+Architect Number: 0832887743 
+Architect Email: bostonmenna@gmail.com 
 Architect Address: Potchefstroom 
+Engineer Name: Elvis 
+Engineer Number: 0976789900 
+Engineer Email: kittyelvis@gmail.com 
+Engineer Address: Barcelona 
  
-Project Name: Lodge Lydia 
-Project Number: 03 
-Building Type: Lodge 
-Physical Address: Ceturion 
-ERF Number: 0003 
-Project Deadline: 2021-02-20 
-Project Value: 30000.0 
-Paid To Date: 15000.0 
+Project Name: Castle Viola 
+Project Number: 3 
+Building Type: Castle 
+Physical Address: Amsterdam 
+ERF Number: 03 
+Project Deadline: 2021-12-31 
+Project Value: 50000.0 
+Paid To Date: 25000.0 
 Finalised: Not Finalised 
 Completion Date:  
-Contractor Name: Therese 
-Contractor Number: 083 
-Contractor Email: therese@gmail.com 
-Contractor Address: Fochville 
-Customer Name: Lydia 
-Customer Number: 076 
-Customer Email: lydia@gmail.com 
-Customer Address: Carletonville 
-Architect Name: Rene 
-Architect Number: 011 
-Architect Email: rene@gmail.com 
-Architect Address: Pretoria 
+Contractor Name: Adelia 
+Contractor Number: 043 
+Contractor Email: adelia@gmail.com 
+Contractor Address: Melkbos 
+Customer Name: Viola 
+Customer Number: 066 
+Customer Email: viola@gmail.com 
+Customer Address: Budapest 
+Architect Name: Selina 
+Architect Number: 123 
+Architect Email: selina@gmail.com 
+Architect Address: Berlin 
+Engineer Name: Birgit 
+Engineer Number: 098 
+Engineer Email: birgit@yahoo.com 
+Engineer Address: Hamburg 
  
-Project Name: Flat Sergio 
-Project Number: 06 
-Building Type: Flat 
-Physical Address: Singapur 
-ERF Number: 0006 
+Project Name: School Rooney Mara 
+Project Number: 5 
+Building Type: School 
+Physical Address: Fochville 
+ERF Number: 05 
 Project Deadline: 2030-12-31 
-Project Value: 35000.0 
-Paid To Date: 20000.0 
+Project Value: 90000.0 
+Paid To Date: 45000.0 
 Finalised: Not Finalised 
 Completion Date:  
-Contractor Name: Jeanie 
-Contractor Number: 987 
-Contractor Email: jeanie@hotmail.com 
-Contractor Address: Fochville 
-Customer Name: Sergio 
-Customer Number: 890 
-Customer Email: sergio@hotmail.com 
-Customer Address: Centurion 
-Architect Name: Nico 
-Architect Number: 087 
-Architect Email: nico@yahoo.com 
-Architect Address: Durban 
- 
-Project Name: House Nikki 
-Project Number: 07 
-Building Type: House 
-Physical Address: New York 
-ERF Number: 0007 
-Project Deadline: 2022-02-02 
-Project Value: 40000.0 
-Paid To Date: 20000.0 
-Finalised: Not Finalised 
-Completion Date:  
-Contractor Name: Sam 
-Contractor Number: 987 
-Contractor Email: sam@gmail.com 
-Contractor Address: Kempton 
-Customer Name: Nikki 
+Contractor Name: Daniel Radcliff 
+Contractor Number: 098 
+Contractor Email: danielrad@gmail.com 
+Contractor Address: London 
+Customer Name: Rooney Mara 
 Customer Number: 654 
-Customer Email: nikki@gmail.com 
-Customer Address: Cape Town 
-Architect Name: Tian 
-Architect Number: 765 
-Architect Email: tian@hotmail.com 
-Architect Address: Hamilton 
+Customer Email: mararooney@yahoo.com 
+Customer Address: New York 
+Architect Name: Tom Hardy 
+Architect Number: 888 
+Architect Email: hardytom@gmail.com 
+Architect Address: Los Angeles 
+Engineer Name: Brad Pit 
+Engineer Number: 976 
+Engineer Email: pitbrad@gmail.com 
+Engineer Address: San Fransisco 
  

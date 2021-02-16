@@ -1,23 +1,27 @@
-Project Name: Castle Bella 
-Project Number: 02 
-Building Type: Castle 
-Physical Address: Fochville 
-ERF Number: 0002 
-Project Deadline: 2021-01-20 
+Project Name: Apartment Jolene 
+Project Number: 2 
+Building Type: Apartment 
+Physical Address: Potchefstroom 
+ERF Number: 02 
+Project Deadline: 2021-01-01 
 Project Value: 15000.0 
-Paid To Date: 1000.0 
+Paid To Date: 7500.0 
 Finalised: Not Finalised 
 Completion Date:  
-Contractor Name: Jolene 
-Contractor Number: 777 
-Contractor Email: jolene@gmail.com 
+Contractor Name: Dirk 
+Contractor Number: 0912346565 
+Contractor Email: bostondirk@gmail.com 
 Contractor Address: Potchefstroom 
-Customer Name: Bella 
-Customer Number: 999 
-Customer Email: bella@gmail.com 
+Customer Name: Jolene 
+Customer Number: 0763448877 
+Customer Email: bostonlina@gmail.com 
 Customer Address: Potchefstroom 
-Architect Name: Dirk 
-Architect Number: 888 
-Architect Email: dirk@gmail.com 
+Architect Name: Bella 
+Architect Number: 0832887743 
+Architect Email: bostonmenna@gmail.com 
 Architect Address: Potchefstroom 
+Engineer Name: Elvis 
+Engineer Number: 0976789900 
+Engineer Email: kittyelvis@gmail.com 
+Engineer Address: Barcelona 
  

@@ -66,7 +66,7 @@ public class Project {
 	 */
 	private String completionDate;
 	
-	// We will construct Sub-Objects in the Project class and call them contractor, architect and customer
+	// We will construct Sub-Objects in the Project class and call them contractor, architect, customer and engineer
 	/**
 	 * Person sub-object for the project contractor
 	 */
@@ -81,6 +81,11 @@ public class Project {
 	 * Person sub-object for the project architect
 	 */
 	private Person architect;
+	
+	/**
+	 * Person sub-object for the project engineer
+	 */
+	private Person engineer;
 	
 	// Constructor
 	/**
@@ -107,8 +112,12 @@ public class Project {
 	 * @param architectNumber Construct the architect number
 	 * @param architectEmail Construct the architect email
 	 * @param architectAddress Construct the architect address
+	 * @param engineerName Construct the engineer name
+	 * @param engineerNumber Construct the engineer number
+	 * @param engineerEmail Construct the engineer email
+	 * @param engineerAddress Construct the engineer address
 	 */
-	public Project(String projectName, String projectNumber, String buildingType, String physicalAddress, String erfNumber, LocalDate projectDeadline, double projectValue, double paidToDate, String finalised, String completionDate, String contractorName, String contractorNumber, String contractorEmail, String contractorAddress, String customerName, String customerNumber, String customerEmail, String customerAddress, String architectName, String architectNumber, String architectEmail, String architectAddress)
+	public Project(String projectName, String projectNumber, String buildingType, String physicalAddress, String erfNumber, LocalDate projectDeadline, double projectValue, double paidToDate, String finalised, String completionDate, String contractorName, String contractorNumber, String contractorEmail, String contractorAddress, String customerName, String customerNumber, String customerEmail, String customerAddress, String architectName, String architectNumber, String architectEmail, String architectAddress, String engineerName, String engineerNumber, String engineerEmail, String engineerAddress)
 	{
 		this.setProjectName(projectName);
 		this.setProjectNumber(projectNumber);
@@ -121,10 +130,11 @@ public class Project {
 		this.setFinalised(finalised);
 		this.setCompletionDate(completionDate);
 		
-		// Construct Sub-Objects called contractor, customer and architect of type Person WITHIN THIS PROJECT CONSTRUCTOR
+		// Construct Sub-Objects called contractor, customer, architect and engineer of type Person WITHIN THIS PROJECT CONSTRUCTOR
 		this.setContractor(contractorName, contractorNumber, contractorEmail, contractorAddress);
 		this.setCustomer(customerName, customerNumber, customerEmail, customerAddress);
 		this.setArchitect(architectName, architectNumber, architectEmail, architectAddress);
+		this.setEngineer(engineerName, engineerNumber, engineerEmail, engineerAddress);
 		
 		// If a project name is not entered give it a name automatically
 		if(this.getProjectName().equals(""))
@@ -260,6 +270,18 @@ public class Project {
 		this.architect = new Person(ArchitectName, ArchitectNumber, ArchitectEmail, ArchitectAddress);
 	}
 	
+	/**
+	 * 
+	 * @param EngineerName Set the engineer name
+	 * @param EngineerNumber Set the engineer number
+	 * @param EngineerEmail Set the engineer email
+	 * @param EngineerAddress Set the engineer address
+	 */
+	public void setEngineer(String EngineerName, String EngineerNumber, String EngineerEmail, String EngineerAddress)
+	{
+		this.engineer = new Person(EngineerName, EngineerNumber, EngineerEmail, EngineerAddress);
+	}
+	
 	// Getters
 	/**
 	 * 
@@ -378,6 +400,15 @@ public class Project {
 		return architect;
 	}
 	
+	/**
+	 * 
+	 * @return Get the engineer
+	 */
+	public Person getEngineer()
+	{
+		return engineer;
+	}
+	
 	// Method displayProjectDetails() displays all the attributes
 	/**
 	 * Display the project details by using the getters
@@ -395,7 +426,7 @@ public class Project {
 		System.out.println("Is the project finalised: " + getFinalised());
 		System.out.println("Completion date: " + getCompletionDate());
 		
-		// Call non static method displayPersonDetails() from  the Person Class using the object contractor, customer and architect
+		// Call non static method displayPersonDetails() from  the Person Class using the object contractor, customer, architect and engineer
 		System.out.println("Contractor Details");
 		getContractor().displayPersonDetails();
 		
@@ -404,6 +435,9 @@ public class Project {
 		
 		System.out.println("Architect Details");
 		getArchitect().displayPersonDetails();
+		
+		System.out.println("Engineer Details");
+		getEngineer().displayPersonDetails();
 		System.out.println("");
 	}
 	

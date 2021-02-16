@@ -1,69 +1,54 @@
-Project Name: Mansion Silvia 
-Project Number: 01 
-Building Type: Mansion 
+Project Name: House Wynand 
+Project Number: 1 
+Building Type: House 
 Physical Address: Potchefstroom 
-ERF Number: 0001 
-Project Deadline: 2021-02-01 
+ERF Number: 01 
+Project Deadline: 2021-02-20 
 Project Value: 10000.0 
 Paid To Date: 2000.0 
 Finalised: Finalised 
-Completion Date: 2021-01-25 
-Contractor Name: Wynand 
-Contractor Number: 061 
-Contractor Email: bassonwynand@gmail.com 
-Contractor Address: Zwolle 
-Customer Name: Silvia 
-Customer Number: 031 
-Customer Email: ferrersilvia@gmail.com 
-Customer Address: Barcelona 
-Architect Name: Marco 
-Architect Number: 076 
-Architect Email: bassonmarco@gmail.com 
-Architect Address: Alberton 
+Completion Date: 2021-02-15 
+Contractor Name: Marco 
+Contractor Number: 0762390032 
+Contractor Email: bassonmarco@gmail.com 
+Contractor Address: Alberton 
+Customer Name: Wynand 
+Customer Number: 0762390083 
+Customer Email: bassonwynand@gmail.com 
+Customer Address: Zwolle 
+Architect Name: Silvia 
+Architect Number: 0617891092 
+Architect Email: ferrersilvia@gmail.com 
+Architect Address: Barcelona 
+Engineer Name: Nikki 
+Engineer Number: 0734680098 
+Engineer Email: bassonnikki@gmail.com 
+Engineer Address: Cape Town 
  
-Project Name: House Dylan 
-Project Number: 04 
-Building Type: House 
-Physical Address: Potchefstroom 
-ERF Number: 0004 
-Project Deadline: 2021-01-10 
-Project Value: 12000.0 
-Paid To Date: 6000.0 
+Project Name: Tower Robert 
+Project Number: 4 
+Building Type: Tower 
+Physical Address: Slovakia 
+ERF Number: 04 
+Project Deadline: 2030-12-31 
+Project Value: 40000.0 
+Paid To Date: 30000.0 
 Finalised: Finalised 
-Completion Date: 2021-01-25 
-Contractor Name: Wesley 
-Contractor Number: 022 
-Contractor Email: wesley@gmail.com 
-Contractor Address: Pretoria 
-Customer Name: Dylan 
-Customer Number: 087 
-Customer Email: dylan@gmail.com 
-Customer Address: Randfontein 
-Architect Name: Madeleen 
-Architect Number: 054 
-Architect Email: madeleen@gmail.com 
-Architect Address: Witbank 
- 
-Project Name: Mansion Vlooi 
-Project Number: 05 
-Building Type: Mansion 
-Physical Address: Amsterdam 
-ERF Number: 0005 
-Project Deadline: 2021-01-01 
-Project Value: 19000.0 
-Paid To Date: 18000.0 
-Finalised: Finalised 
-Completion Date: 2021-01-26 
-Contractor Name: Johi 
-Contractor Number: 083296 
-Contractor Email: johibasson@gmail.com 
-Contractor Address: Witbank 
-Customer Name: Vlooi 
-Customer Number: 076239 
-Customer Email: vlooibasson@gmail.com 
-Customer Address: Rustenburg 
-Architect Name: Andy 
-Architect Number: 097654 
-Architect Email: andybasson@gmail.com 
-Architect Address: Klerksdorp 
+Completion Date: 2021-02-15 
+Contractor Name: Janosh 
+Contractor Number: 777 
+Contractor Email: janosh@gmail.com 
+Contractor Address: Budapest 
+Customer Name: Robert 
+Customer Number: 888 
+Customer Email: robbie@yahoo.com 
+Customer Address: Budapest 
+Architect Name: Michael 
+Architect Number: 666 
+Architect Email: mike@gmail.com 
+Architect Address: Liverpool 
+Engineer Name: Jan 
+Engineer Number: 444 
+Engineer Email: janneman@gmail.com 
+Engineer Address: Slovakia 
  

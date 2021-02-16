@@ -1,0 +1,25 @@
+create database if not exists PoisePMS_database;
+show databases;
+use PoisePMS_database;
+
+drop table if exists project;
+drop table if exists contractor;
+drop table if exists customer;
+drop table if exists architect;
+drop table if exists engineer;
+
+create table contractor (ContractorName varchar(50) not null, ContractorNumber varchar(50), ContractorEmail varchar(50), ContractorAddress varchar(50), primary key (ContractorName));
+create table customer (CustomerName varchar(50) not null, CustomerNumber varchar(50), CustomerEmail varchar(50), CustomerAddress varchar(50), primary key (CustomerName));
+create table architect (ArchitectName varchar(50) not null, ArchitectNumber varchar(50), ArchitectEmail varchar(50), ArchitectAddress varchar(50), primary key (ArchitectName));
+create table engineer (EngineerName varchar(50) not null, EngineerNumber varchar(50), EngineerEmail varchar(50), EngineerAddress varchar(50), primary key (EngineerName));
+create table project (ProjectNumber varchar(50) not null, ProjectName varchar(50), BuildingType varchar(50), PhysicalAddress varchar(50), ERFNumber varchar(50), ProjectDeadline date, ProjectCost float, PaidToDate float, Finalised varchar(50), CompletionDate varchar(50), ContractorName varchar(50), CustomerName varchar(50), ArchitectName varchar(50), EngineerName varchar(50), primary key (ProjectNumber), foreign key (ContractorName) references contractor (ContractorName), foreign key (CustomerName) references customer (CustomerName), foreign key (ArchitectName) references architect (ArchitectName), foreign key (EngineerName) references engineer (EngineerName));
+
+show tables;
+
+describe contractor;
+describe customer;
+describe architect;
+describe engineer;
+describe project;
+
+select * from project;

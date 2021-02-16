@@ -1,23 +1,27 @@
-Project Name: House Nikki 
-Project Number: 07 
-Building Type: House 
-Physical Address: New York 
-ERF Number: 0007 
-Project Deadline: 2022-02-02 
+Project Name: Tower Robert 
+Project Number: 4 
+Building Type: Tower 
+Physical Address: Slovakia 
+ERF Number: 04 
+Project Deadline: 2030-12-31 
 Project Value: 40000.0 
-Paid To Date: 20000.0 
-Finalised: Not Finalised 
-Completion Date:  
-Contractor Name: Sam 
-Contractor Number: 987 
-Contractor Email: sam@gmail.com 
-Contractor Address: Kempton 
-Customer Name: Nikki 
-Customer Number: 654 
-Customer Email: nikki@gmail.com 
-Customer Address: Cape Town 
-Architect Name: Tian 
-Architect Number: 765 
-Architect Email: tian@hotmail.com 
-Architect Address: Hamilton 
+Paid To Date: 30000.0 
+Finalised: Finalised 
+Completion Date: 2021-02-15 
+Contractor Name: Janosh 
+Contractor Number: 777 
+Contractor Email: janosh@gmail.com 
+Contractor Address: Budapest 
+Customer Name: Robert 
+Customer Number: 888 
+Customer Email: robbie@yahoo.com 
+Customer Address: Budapest 
+Architect Name: Michael 
+Architect Number: 666 
+Architect Email: mike@gmail.com 
+Architect Address: Liverpool 
+Engineer Name: Jan 
+Engineer Number: 444 
+Engineer Email: janneman@gmail.com 
+Engineer Address: Slovakia 
  
