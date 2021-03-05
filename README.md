@@ -1,6 +1,6 @@
 # projectManager
 ## What the projectManager project is for
-The projectManager project enables a business to use the project management system do the following:
+The projectManager project was created using Java and MySQL. This project enables a business to do the following:
 * Create new projects and keep track of them
 * Display project details
 * Update project details
